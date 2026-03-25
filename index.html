@@ -1,5 +1,21 @@
-hi lol
+<p>hi lol</p>
+<p>you can send me msgs here :yay:</p>
 
-uhhh how much do i have to write here for this work 😭
+<input type="text" placeholder="msg" id="msg-input" required=true>
+<input type="text" placeholder="author" id="author-input" required=true>
+<br>
+<button id="send-btn">send!</button>
 
-uhhhhhh
+<script>
+  const msgInputEl = document.getElementById("msg-input")
+  const authorInputEl = document.getElementById("author-input")
+  const sendBtn = document.getElementById("send-btn")
+
+  const serverUrl = "https://4f9a-146-196-37-4.ngrok-free.app"
+  
+  sendBtn.addEventListener("click", e => {
+    const msg = msgInputEl.text
+    const author = authorInputEl.text
+    await fetch(`${serverUrl}/send?msg=${msg}&author=${author})
+  })
+</script>
